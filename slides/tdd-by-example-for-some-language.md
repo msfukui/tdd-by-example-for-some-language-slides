@@ -1,14 +1,27 @@
 class: center, middle
 
 <style>
-.column-left{
+.two-column-left{
   float: left;
   width: 40%;
   text-align: left;
 }
-.column-right{
+.two-column-right{
   float: right;
   width: 55%;
+  text-align: left;
+}
+</style>
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-right{
+  float: right;
+  width: 50%;
   text-align: left;
 }
 </style>
@@ -41,17 +54,19 @@ class: center, middle
 
 * 「テスト駆動開発入門」よいと思います
 
-### 話さないこと
+---
+
+# 話さないこと
 
 * なぜ、プログラミング言語を、学ぶ?
 
 * プログラミング言語、何を、学ぶ?
 
-### これはこれで話したい・お聞きしたい..
+### これはこれで話したい・お聞きしたい..<br /> またの機会に..
 
 ---
 
-# どうやって学ぶ?
+# 言語、どうやって学ぶ?
 
 * `Hello World`
 
@@ -91,10 +106,10 @@ class: center, middle
 
 # テスト駆動開発入門
 
-<div class="column-left">
+<div class="two-column-left">
   <img src="slides/tdd_by_example.jpg" width="360">
 </div>
-<div class="column-left">
+<div class="two-column-left">
   <img src="slides/tdd_by_example_jp_new.jpg" width="320">
 </div>
 
@@ -106,11 +121,13 @@ class: center, middle
 
 * テーマに沿って章毎に少しずつ実装を進める
 
-* 第一部（多国通貨）: Java : 多国通貨とのそのレート変換のモデルを TDD で作る
+* 第一部（多国通貨）: Java : 多国通貨とそのレート変換のモデルを TDD で作る
 
 * 第二部（xUnit）: Python : xUnit を TDD で作る
 
-### 第一部だけに絞ってもよいと思います
+* 第三部（テスト駆動開発のパターン） : パターンの解説
+
+### 第二部は再現が難しいところもある気がするので、<br />第一部だけに絞ってもよいと思います
 
 ---
 
@@ -124,6 +141,8 @@ class: center, middle
 
 * 本なので終わりがある（ = 達成感が持てる）
 
+---
+
 # だめなところ
 
 * クラス設計ができる言語じゃないとだめ<br />
@@ -132,33 +151,94 @@ class: center, middle
 
 ---
 
-# 準備はこんな感じで
+# 準備
 
-* github.com にレポジトリを作る<br />
-tdd-by-example-for-typescript とか
+github.com にレポジトリを作る
 
-* 通知用の slack channel を作る
+<a href="https://github.com/msfukui/tdd-by-example-for-typescript" target="_blank"><img src="slides/github.com.png" width="540"></a>
 
-* CI と カバレッジの設定を準備<br />
-TravisCI, CodeClimate, etc..<br />
-Webhooks とか GitHub Apps とか<br />
+---
+
+# 準備
+
+通知用の slack space / channel を作る
+
+<img src="slides/slack.png" width="600">
+
+---
+
+# 準備
+
+CI と カバレッジの設定を準備
+
+<img src="slides/travis-ci.png" width="540">
+
+---
+
+# 準備
+
+CI と カバレッジの設定を準備
+
+```yaml
+language: node_js
+node_js:
+- '10'
+script:
+- npm test
+after_success:
+- npm run clean
+notifications:
+  email: false
+  slack:
+    secure: ********
+```
+
+---
+
+# 準備
+
+CI と カバレッジの設定を準備
+
+<img src="slides/codeclimate.png" width="560">
 
 ---
 
 # README を書いて
 
-* 環境の作り方<br />
-どんな環境、テストフレームワーク、エディタで書くか決める
-
-* テストの実行方法<br />
-テストフレームワークの使い方を調べて書く<br />
-テストコードのサンプルを一緒に書いておくとよい
-
-* ディレクトリ構成の説明<br />
-どこに何を入れるかの配置ルールを決める
-
-* 参考文献へのリンク<br />
-参考にしたブログ、公式サイトのリンクを書いておく
+<div class="column-left">
+  <p>
+    <a href="https://github.com/msfukui/tdd-by-example-for-typescript/blob/master/README.md" target="_blank"><img src="slides/readme.png" width="540"></a>
+  </p>
+</div>
+<div class="column-right">
+  <ul>
+    <li>
+      <p>
+        環境の作り方<br />
+        どんな環境、テストフレームワーク、エディタで書くか決める
+      </p>
+    </li>
+    <li>
+      <p>
+        テストの実行方法<br />
+        テストフレームワークの使い方を調べて書く<br />
+        テストコードのサンプルを一緒に書いておくとよい
+      </p>
+    </li>
+    <li>
+      <p>
+        ディレクトリ構成の説明<br />
+        どこに何を入れるかの配置ルールを決める
+      </p>
+    </li>
+    <li>
+      <p>
+        参考文献へのリンク<br />
+        参考にしたブログ、公式サイトのリンクを書いておく
+      </p>
+    </li>
+  </ul>
+</div>
 
 ---
 
@@ -183,7 +263,9 @@ Webhooks とか GitHub Apps とか<br />
 # 気をつけたところ
 
 <div class="column-left">
-  <a href="https://github.com/msfukui/tdd-by-example-for-typescript/issues?q=is%3Aissue+is%3Aclosed" target="_blank"><img src="slides/issues.png" width="460"></a>
+  <p>
+    <a href="https://github.com/msfukui/tdd-by-example-for-typescript/issues?q=is%3Aissue+is%3Aclosed" target="_blank"><img src="slides/issues.png" width="500"></a>
+  </p>
 </div>
 <div class="column-right">
   <ul>

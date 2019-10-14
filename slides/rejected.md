@@ -51,3 +51,18 @@
   </li>
 </ul>
 </div>
+
+---
+
+# "Bring your team into Slack" メッセージを消す
+
+gmail 使っていればエイリアスのメールアドレスでメンバーに招待することで消せる
+
+c.f. https://www.reddit.com/r/Slack/comments/bo2lz2/remove_bring_your_team_into_slack_banner/
+
+<div class="column-left">
+  <img src="slides/bring_your_team_into_slack.png" width="300">
+</div>
+<div class="column-right">
+  <img src="slides/slack.png" width="300">
+</div>
